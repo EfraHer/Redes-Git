@@ -24,7 +24,7 @@
                 Redes IP
             </h1>
         </header>
-        <main>
+        <main>  
             <form id="data">
                 <div class="container">
                     <label for="IP" class="text-warning">Direccion IP</label>
@@ -56,18 +56,23 @@
                     <input type="text" id="bin" disabled class="text-center text-danger border-0 border-bottom border-warning bg-dark">
                 </div>
                 <div class="input-group">
-                    <span class="mt-3 input-group-text">binario-IP</span>
-                    <input type="text" id="bin_ip" disabled
-                        class="border-0 border-bottom border-warning bg-dark text-danger">
-                    <span class="mt-3 ms-3 input-group-text p-1">New-mask</span>
+                    <div class="input-group">
+                        <span class="mt-3 input-group-text">binario-IP</span>
+                        <input type="text" id="bin_ip" disabled
+                        class="form-control text-center border-0 border-bottom border-warning bg-dark text-danger">
+                        <span class="mt-3 ms-3 input-group-text p-1">New-mask</span>
                     <input type="text" disabled placeholder="new-mask" id="new_mask"
                         class="text-danger mt-3 border-0 border-bottom border-warning bg-dark">
-                    <span class="input-group-text mt-3">2n-2>=</span>
-                    <input type="text" id="saltos" disabled placeholder="sub-redes"
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text mt-3">2n-2>=</span>
+                        <input type="text" id="saltos" disabled placeholder="sub-redes"
                         class="border-0 border-bottom border-warning bg-dark mt-3 ps-2 text-danger">
-                    <span class="input-group-text mt-3">Resultado</span>
-                    <input type="text" disabled id="saltos_answer"
+                        <span class="input-group-text mt-3">Resultado</span>
+                        <input type="text" disabled id="saltos_answer"
                         class="bg-dark border-0 border-bottom border-warning mt-3">
+                    </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-text mt-3">Redes 1 y 2</span>
