@@ -1,56 +1,60 @@
-import {convertir,binario} from "./oper/form1.js"
+import { convertir, binario, Ejecutador } from "./oper/form1.js"
 
 const data = document.getElementById('data');
-const ip= document.getElementById('IP').value;
-let redes= document.querySelector("#red").value;
-let saltos=document.getElementById('#saltos').value;
-let Tclas= document.getElementById('Tclass');
-let mascara= document.getElementById('mascara');
-let bin= document.getElementById('bin');
-let bin_ip=document.getElementById("bin_ip");
-let newMask=document.getElementById("new_mask");
+const ip = document.getElementById('IP');
+let redes = document.querySelector("#red");
+let saltos = document.getElementById('#saltos');
+let Tclas = document.getElementById('Tclass');
+let mascara = document.getElementById('mascara');
+let bin = document.getElementById('bin');
+let bin_ip = document.getElementById("bin_ip");
+let newMask = document.getElementById("new_mask");
 
-let whoclass=[];
+let whoclass = [];
 
-data.onsubmit=(e)=>{
+data.onsubmit = (e) => {
     e.preventDefault();
-    whoclass=ip.split(".").map(Number);
+    whoclass = ip.value.split(".").map(Number);
 
-    if (ip=="" || redes=="") {
+    if (ip.value == "" || redes.value == "") {
         alert('Complete the data')
+        ip.value = ""
+        redes.value = ""
     }
-    else if (whoclass[0]<=127) {
-        Tclas.value="A";
-        mascara.value=8;
-        bin.value="255.0.0.0"
-        saltos=redes
+    else if (whoclass[0] <= 127) {
+        Tclas.value = "A";
+        mascara.value = 8;
+        bin.value = "255.0.0.0"
+        saltos.value = redes
     }
-    else if(whoclass[0]<=191){
-        Tclas.value="B";
-        mascara.value=16;
-        bin.value="255.255.0.0";
-        saltos=redes;
+    else if (whoclass[0] <= 191) {
+        Tclas.value = "B";
+        mascara.value = 16;
+        bin.value = "255.255.0.0";
+        saltos.value = redes;
     }
-    else if(whoclass[0]<=223){
-        Tclas.value="C";
-        mascara.value=24;
-        bin.value="255.255.255.0";
-        saltos=redes;
+    else if (whoclass[0] <= 223) {
+        Tclas.value = "C";
+        mascara.value = 24;
+        bin.value = "255.255.255.0";
+        saltos.value = redes;
     }
-    else if(whoclass[0]<=239){
-        Tclas.value="D";
-        mascara.value=32;
-        bin.value="255.255.255.255";
-        saltos=redes;
+    else if (whoclass[0] <= 239) {
+        Tclas.value = "D";
+        mascara.value = 32;
+        bin.value = "255.255.255.255";
+        saltos.value = redes;
     }
-    else{
+    else {
         alert("The number is invalid")
     }
-    
+
+
     for (let i = 0; i <= 3; i++) {
         convertir(whoclass[i]);
     }
-    const binip=binario;
+    const binip = binario;
 
-    bin_ip.value=binip.join(".");
+    bin_ip.value = binip.join(".");
+
 }

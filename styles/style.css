@@ -16,11 +16,14 @@ body .conten header {
 body .conten header h1 {
   color: #008cff;
 }
+body .conten header .data_con {
+  width: 100%;
+}
+body .conten header .data_con .red {
+  width: 200px;
+}
 body .conten header .information {
   border: 2px solid #ffee00;
-}
-body .conten header .information #saltos, body .conten header .information #saltos_answer, body .conten header .information #new_mask {
-  width: 150px;
 }
 body .conten header .information th {
   color: yellow;
