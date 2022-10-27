@@ -18,3 +18,23 @@ export let convertir = (n) => {
   }
   return binario
 }
+
+//Bits, mask and host
+export class NewMaskara {
+  constructor(redes) {
+    this.redes = redes;
+  }
+
+  get bits() {
+    return this.calRedes();
+  }
+
+  calRedes() {
+    let expo = 1;
+    let resulta = Math.pow(2, expo) - 2;
+    while (this.redes >= resulta) {
+      expo = +1
+    }
+    return [expo, resulta];
+  }
+}
