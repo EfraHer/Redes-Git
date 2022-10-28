@@ -20,21 +20,17 @@ export let convertir = (n) => {
 }
 
 //Bits, mask and host
-export class NewMaskara {
-  constructor(redes) {
-    this.redes = redes;
+export let maskNew = (R, k) => {
+
+  let resultado = (2 ** k) - 2;
+
+  if (resultado <= R) {
+    maskNew(R, k + 1);
+  } else {
+    let espo = k
+
+    //cheacar
+    // return [resultado, espo]
   }
 
-  get bits() {
-    return this.calRedes();
-  }
-
-  calRedes() {
-    let expo = 1;
-    let resulta = Math.pow(2, expo) - 2;
-    while (this.redes >= resulta) {
-      expo = +1
-    }
-    return [expo, resulta];
-  }
 }

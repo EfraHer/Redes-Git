@@ -1,4 +1,4 @@
-import { convertir, binario, NewMaskara } from "./oper/form1.js"
+import { convertir, binario, maskNew } from "./oper/form1.js"
 
 const data = document.getElementById('data');
 const ip = document.getElementById('IP');
@@ -60,8 +60,8 @@ data.onsubmit = (e) => {
         bin_ip.value = binario.join(".");
     }
 
-    // const prueva = new NewMaskara(redes.value);
+    const prueva = maskNew(redes.value, 0);
 
-    // console.log(prueva.bits);
+    // console.log(prueva);
 
 }
