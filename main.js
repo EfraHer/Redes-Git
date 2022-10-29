@@ -9,7 +9,8 @@ let mascara = document.getElementById('mascara');
 let bin = document.getElementById('bin');
 let bin_ip = document.getElementById("bin_ip");
 let newMask = document.getElementById("new_mask");
-let apro = true
+const saltos_answer = document.getElementById('saltos_answer');
+let apro = true;
 
 let whoclass = [];
 
@@ -62,6 +63,5 @@ data.onsubmit = (e) => {
 
     const prueva = maskNew(redes.value, 0);
 
-    // console.log(prueva);
-
+    saltos_answer.value = prueva
 }

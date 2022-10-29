@@ -27,10 +27,8 @@ export let maskNew = (R, k) => {
   if (resultado <= R) {
     maskNew(R, k + 1);
   } else {
-    let espo = k
 
-    //cheacar
-    // return [resultado, espo]
+    return [resultado, k]
   }
 
 }
