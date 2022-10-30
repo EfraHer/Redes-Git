@@ -1,4 +1,4 @@
-import { convertir, binario, maskNew } from "./oper/form1.js"
+import { convertir, binario, maskNew, RedHost } from "./oper/form1.js"
 
 const data = document.getElementById('data');
 const ip = document.getElementById('IP');
@@ -10,6 +10,9 @@ let bin = document.getElementById('bin');
 let bin_ip = document.getElementById("bin_ip");
 let newMask = document.getElementById("new_mask");
 const saltos_answer = document.getElementById('saltos_answer');
+let red_12 = document.getElementById("red_12");
+let host_12 = document.getElementById("host_12");
+
 let apro = true;
 
 let whoclass = [];
@@ -61,7 +64,13 @@ data.onsubmit = (e) => {
         bin_ip.value = binario.join(".");
     }
 
-    const prueva = maskNew(redes.value, 0);
+    let prueva = maskNew(redes.value, 0);
 
-    saltos_answer.value = prueva
+    saltos_answer.value = prueva[0]; //Number of bits ON
+
+    newMask.value = mascara.value - prueva[1];
+
+    red_12.value = new RedHost();
+    host_12.value = new RedHost();
+
 }

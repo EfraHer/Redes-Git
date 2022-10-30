@@ -5,6 +5,7 @@ body {
 body .conten {
   height: 100vh;
   background-color: gray-800;
+  height: 100vh;
 }
 body .conten header {
   text-align: center;
@@ -36,4 +37,6 @@ body .conten .footer {
   text-align: center;
   border-style: solid;
   border-color: #f1e318;
+  position: relative;
+  bottom: -20vh;
 }/*# sourceMappingURL=style.css.map */

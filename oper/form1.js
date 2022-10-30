@@ -25,10 +25,26 @@ export let maskNew = (R, k) => {
   let resultado = (2 ** k) - 2;
 
   if (resultado <= R) {
-    maskNew(R, k + 1);
-  } else {
-
-    return [resultado, k]
+    return maskNew(R, k + 1);
   }
+
+  return [resultado, k]
+
+}
+
+export class RedHost {
+  constructor(saltos, clase) {
+    this.saltos = saltos;
+    this.clase = clase;
+  }
+  //Checar
+  // calred(x) {
+  //   if (x == "A"){
+
+  //   }
+  // }
+  // calhost() {
+
+  // }
 
 }
