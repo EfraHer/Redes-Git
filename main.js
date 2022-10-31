@@ -12,6 +12,7 @@ let newMask = document.getElementById("new_mask");
 const saltos_answer = document.getElementById('saltos_answer');
 let red_12 = document.getElementById("red_12");
 let host_12 = document.getElementById("host_12");
+let numSaltos = document.querySelector("#numSaltos");
 
 let apro = true;
 
@@ -68,9 +69,13 @@ data.onsubmit = (e) => {
 
     saltos_answer.value = prueva[0]; //Number of bits ON
 
-    newMask.value = mascara.value - prueva[1];
+    newMask.value = parseInt(mascara.value) + parseInt(prueva[1]);
+    let old = new RedHost(0, newMask.value, mascara.value);
+    let after = new RedHost(saltos_answer.value, newMask.value, mascara.value);
 
-    red_12.value = new RedHost();
-    host_12.value = new RedHost();
+    red_12.value = old.redHost.join(" y ");
+    host_12.value = after.redHost.join(" y ");
+
+    numSaltos.value = newMask.value - mascara.value;
 
 }

@@ -33,18 +33,20 @@ export let maskNew = (R, k) => {
 }
 
 export class RedHost {
-  constructor(saltos, clase) {
+  constructor(saltos, maskNew, mask) {
     this.saltos = saltos;
-    this.clase = clase;
+    this.maskNew = maskNew;
+    this.mask = mask;
   }
-  //Checar
-  // calred(x) {
-  //   if (x == "A"){
+  get redHost() {
+    return this.calcRedHost();
+  }
 
-  //   }
-  // }
-  // calhost() {
-
-  // }
+  calcRedHost() {
+    if (this.saltos === 0 || this.saltos === "0") {
+      return [this.mask, 32 - this.mask];
+    }
+    return [this.maskNew, 32 - this.maskNew];
+  }
 
 }
