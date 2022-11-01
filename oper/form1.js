@@ -50,3 +50,22 @@ export class RedHost {
   }
 
 }
+
+//answer of the new host 1,0
+export let jumpTable = (x) => {
+
+  let acumulador = 0;
+
+  if (x > 7) return 255;
+
+  for (let i = 7; i > 0; i--) {
+    if (x <= 0) {
+      i = 0;
+      break;
+    }
+    acumulador += 2 ** i
+    x--;
+  }
+  return acumulador;
+
+}

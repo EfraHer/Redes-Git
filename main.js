@@ -1,4 +1,4 @@
-import { convertir, binario, maskNew, RedHost } from "./oper/form1.js"
+import { convertir, binario, maskNew, RedHost, jumpTable } from "./oper/form1.js"
 
 const data = document.getElementById('data');
 const ip = document.getElementById('IP');
@@ -76,6 +76,14 @@ data.onsubmit = (e) => {
     red_12.value = old.redHost.join(" y ");
     host_12.value = after.redHost.join(" y ");
 
-    numSaltos.value = newMask.value - mascara.value;
+    let saltosTabla = newMask.value - mascara.value;
+
+    numSaltos.value = jumpTable(saltosTabla);
+
+    let tableSaltos = 256 - numSaltos.value;
+
+    //Talk crate table
+
+
 
 }
