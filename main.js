@@ -13,6 +13,7 @@ const saltos_answer = document.getElementById('saltos_answer');
 let red_12 = document.getElementById("red_12");
 let host_12 = document.getElementById("host_12");
 let numSaltos = document.querySelector("#numSaltos");
+let lineaSalto = document.getElementById('lineaSalto');
 
 let apro = true;
 
@@ -78,12 +79,12 @@ data.onsubmit = (e) => {
     host_12.value = after.redHost.join(" y ");
 
     let saltosTabla = newMask.value - mascara.value;
+    const numFijo = 256
 
     numSaltos.value = jumpTable(saltosTabla);
+    lineaSalto.value = numFijo - numSaltos.value
 
+    //talk table
     let tableSaltos = 256 - numSaltos.value;
-
-    //Talk crate table
-    let newElementTable =
 
 }

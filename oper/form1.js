@@ -73,6 +73,15 @@ export let jumpTable = (x) => {
 }
 
 //Creacion de la Tabla
-let newElementTable = (ip, saltos) => {
+let newElementTable = (ip, redes, saltos, clase) => {
+  let tablaH = document.createElement('th');
+
+  for (let i = 0; i < array.length; i++) {
+
+    tablaH.scope = 'row';
+    tablaH.innerText = i;
+
+
+  }
 
 }
