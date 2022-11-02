@@ -1,3 +1,4 @@
+// De binario a decimal usrando la logica y no usar 'toStrin(2)'
 export const binario = [];
 export let convertir = (n) => {
 
@@ -32,6 +33,7 @@ export let maskNew = (R, k) => {
 
 }
 
+//Saltos y resultados de maskaras 
 export class RedHost {
   constructor(saltos, maskNew, mask) {
     this.saltos = saltos;
@@ -67,5 +69,10 @@ export let jumpTable = (x) => {
     x--;
   }
   return acumulador;
+
+}
+
+//Creacion de la Tabla
+let newElementTable = (ip, saltos) => {
 
 }

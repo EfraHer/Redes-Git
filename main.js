@@ -73,6 +73,7 @@ data.onsubmit = (e) => {
     let old = new RedHost(0, newMask.value, mascara.value);
     let after = new RedHost(saltos_answer.value, newMask.value, mascara.value);
 
+    //Red host old and after
     red_12.value = old.redHost.join(" y ");
     host_12.value = after.redHost.join(" y ");
 
@@ -83,7 +84,6 @@ data.onsubmit = (e) => {
     let tableSaltos = 256 - numSaltos.value;
 
     //Talk crate table
-
-
+    let newElementTable =
 
 }
