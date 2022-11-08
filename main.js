@@ -1,4 +1,4 @@
-import { convertir, binario, maskNew, RedHost, jumpTable } from "./oper/form1.js"
+import { convertir, binario, maskNew, RedHost, jumpTable, newElementTable } from "./oper/form1.js"
 
 const data = document.getElementById('data');
 const ip = document.getElementById('IP');
@@ -14,6 +14,7 @@ let red_12 = document.getElementById("red_12");
 let host_12 = document.getElementById("host_12");
 let numSaltos = document.querySelector("#numSaltos");
 let lineaSalto = document.getElementById('lineaSalto');
+let tableBody = document.getElementById('bodyTable');//table Body
 
 let apro = true;
 
@@ -23,6 +24,7 @@ data.onsubmit = (e) => {
     e.preventDefault();
     whoclass = ip.value.split(".").map(Number);
 
+    //Resultado de valores clase, redes, maskara y 255.....
     if (ip.value == "" || redes.value == "") {
         alert('Complete the data')
         ip.value = ""
@@ -84,7 +86,10 @@ data.onsubmit = (e) => {
     numSaltos.value = jumpTable(saltosTabla);
     lineaSalto.value = numFijo - numSaltos.value
 
-    //talk table
-    let tableSaltos = 256 - numSaltos.value;
+    //let tableSaltos = 256 - numSaltos.value;//Numero de saltos por fila
 
+    //Create Elements in Table
+    let elements = newElementTable(whoclass, redes.value, lineaSalto.value, Tclas.value);
+
+    tableBody.appendChild(elements);
 }

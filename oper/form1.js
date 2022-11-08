@@ -73,15 +73,47 @@ export let jumpTable = (x) => {
 }
 
 //Creacion de la Tabla
-let newElementTable = (ip, redes, saltos, clase) => {
+export let newElementTable = (ip, redes, saltos, clase) => {
+
+  let tableAdd = document.createElement('tr');
   let tablaH = document.createElement('th');
-
-  for (let i = 0; i < array.length; i++) {
-
-    tablaH.scope = 'row';
-    tablaH.innerText = i;
-
-
+  let subR = document.createElement("td");
+  let primeIp = document.createElement("td");
+  let lastIp = document.createElement("td");
+  let broadcast = document.createElement("td");
+  let ex;
+  //Clasificacion de clase para ubicar aumento de reds
+  switch (clase) {
+    case "A":
+      ex = 1;
+      break;
+    case "B":
+      ex = 2;
+      break;
+    case "C":
+      ex = 3;
+      break;
+    default:
+      return alert("algo salio Mal");
   }
 
+  tablaH.scope = 'row';
+  tablaH.innerText = 1;
+  //Primera colupna slo la direccion ip
+  subR.innerText = ip.join(".");
+  ip[ex] += 1 //Aumento de uno en la seccion designada depende de la clase
+  primeIp.innerText = ip.join(".");
+  ip[ex] += saltos - 3;//Tercera casilla o row de la red
+  lastIp.innerText = ip.join(".");
+  ip[ex] += 1
+  broadcast.innerText = ip.join(".");
+
+
+  tableAdd.appendChild(tablaH);
+  tableAdd.appendChild(subR);
+  tableAdd.appendChild(primeIp);
+  tableAdd.appendChild(lastIp);
+  tableAdd.appendChild(broadcast);
+
+  return tableAdd
 }
