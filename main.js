@@ -86,10 +86,21 @@ data.onsubmit = (e) => {
     numSaltos.value = jumpTable(saltosTabla);
     lineaSalto.value = numFijo - numSaltos.value
 
-    //let tableSaltos = 256 - numSaltos.value;//Numero de saltos por fila
-
     //Create Elements in Table
-    let elements = newElementTable(whoclass, redes.value, lineaSalto.value, Tclas.value);
 
-    tableBody.appendChild(elements);
+    // let elements = new NewElementTable(whoclass, redes.value, lineaSalto.value, Tclas.value);
+    //cada array devuelto puesto en tables
+    let elements;
+
+    for (let i = 0; i < redes.value; i++) {
+
+        if (i > 0) {
+            elements = newElementTable(whoclass, i, lineaSalto.value, Tclas.value, true);
+            tableBody.appendChild(elements);
+        } else {
+
+            elements = newElementTable(whoclass, i, lineaSalto.value, Tclas.value, false);
+            tableBody.appendChild(elements);
+        }
+    }
 }

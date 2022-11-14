@@ -73,7 +73,7 @@ export let jumpTable = (x) => {
 }
 
 //Creacion de la Tabla
-export let newElementTable = (ip, redes, saltos, clase) => {
+export let newElementTable = (ip, contador, saltos, clase, pro) => {
 
   let tableAdd = document.createElement('tr');
   let tablaH = document.createElement('th');
@@ -82,6 +82,7 @@ export let newElementTable = (ip, redes, saltos, clase) => {
   let lastIp = document.createElement("td");
   let broadcast = document.createElement("td");
   let ex;
+
   //Clasificacion de clase para ubicar aumento de reds
   switch (clase) {
     case "A":
@@ -97,6 +98,30 @@ export let newElementTable = (ip, redes, saltos, clase) => {
       return alert("algo salio Mal");
   }
 
+  if (pro == true) {
+
+    tablaH.scope = 'row';
+    tablaH.innerText = contador + 1;
+    //Primera colupna de la direccion ip
+    ip[ex] += 1;
+
+    subR.innerText = ip.join(".");
+    ip[ex] += 1 //Aumento de uno en la seccion designada depende de la clase
+    primeIp.innerText = ip.join(".");
+    ip[ex] += saltos - 3;//Tercera casilla o row de la red
+    lastIp.innerText = ip.join(".");
+    ip[ex] += 1
+    broadcast.innerText = ip.join(".");
+
+    tableAdd.appendChild(tablaH);
+    tableAdd.appendChild(subR);
+    tableAdd.appendChild(primeIp);
+    tableAdd.appendChild(lastIp);
+    tableAdd.appendChild(broadcast);
+
+    return tableAdd
+  }
+
   tablaH.scope = 'row';
   tablaH.innerText = 1;
   //Primera colupna slo la direccion ip
@@ -107,7 +132,6 @@ export let newElementTable = (ip, redes, saltos, clase) => {
   lastIp.innerText = ip.join(".");
   ip[ex] += 1
   broadcast.innerText = ip.join(".");
-
 
   tableAdd.appendChild(tablaH);
   tableAdd.appendChild(subR);
